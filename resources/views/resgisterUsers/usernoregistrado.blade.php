@@ -34,13 +34,13 @@
                             <input type="text" class="form-control" name="direccion" id="direccion">
                         </div>
 
-                        <div class="cumpleanos">
+                        <div class="form-group">
                             <label for="cumpleanos">Cumpleaños</label>
                             <input type="date" class="form-control" name="cumpleanos" id="cumpleanos">
                         </div>
 
                         
-                        <div class="telefono">
+                        <div class="form-group">
                             <label   for="telefono">Télefono</label>
                             <input type="text" class="form-control" name="telefono" id="telefono">
                         </div>

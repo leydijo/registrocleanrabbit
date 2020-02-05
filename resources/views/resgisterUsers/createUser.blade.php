@@ -20,10 +20,10 @@
                     <form action="/search" method="POST" role="search">
                         {{ csrf_field() }}
                         <div class="input-group">
-                            <input type="text" class="form-control" name="c"
+                            <input type="text" class="form-control" name="c" 
                                 placeholder="Search users"> <span class="input-group-btn">
                                 <button type="submit" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-search"></span>
+                                    <span class="glyphicon glyphicon-search"><i class="fas fa-search"></i></span>
                                 </button>
                             </span>
                         </div>
