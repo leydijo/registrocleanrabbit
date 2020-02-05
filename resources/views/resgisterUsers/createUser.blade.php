@@ -39,7 +39,8 @@
                                 <th scope="col">Nombres</th>
                                 <th scope="col">Direccion</th>
                                 <th scope="col">Cumpleaños</th>
-                                <th scope="col">Teelefono</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Editar</th>
                                 {{-- <th scope="col">Last</th>
                                 <th scope="col">Handle</th> --}}
                               </tr>
@@ -52,10 +53,13 @@
                                     <td>{{$user->direccion}}</td> 
                                     <td>{{$user->cumpleanos}}</td> 
                                     <td>{{$user->telefono}}</td> 
-                            
+                                    <td><button type="button" class="btn btn-success">Success</button></td> 
                                 </tr>  
+                               
+                                
                               @endforeach  
                             </tbody>
+                            
                         </table>
                           @elseif(isset($message))
                             <p>{{$message}}</p>
