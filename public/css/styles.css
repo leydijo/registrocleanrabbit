@@ -25,12 +25,6 @@
     border-radius: 50%;
 }
 
-.form-group input {
-    height: 42px;
-    font-size: 18px;
-    border: 0;
-}
-
 button {
     width: 60%;
     margin: 5px 0 25px;

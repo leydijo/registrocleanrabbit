@@ -42,7 +42,7 @@ class RegisterUsersController extends Controller
         
          $createNewUser = new RegisterUser();
          $createNewUser->cedula=$request->input('cedula');
-         $createNewUser->nombres=$request->input('nombres');
+         $createNewUser->nombres=$request->input('nombrescompletos');
          $createNewUser->direccion=$request->input('direccion');
          $createNewUser->cumpleanos=$request->input('cumpleanos');
          $createNewUser->telefono=$request->input('telefono');

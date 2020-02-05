@@ -29,24 +29,30 @@
                         </div>
                     </form>
                     <div class="div container">
-
                         @if(isset($details))
                         <p>los resultados de búsqueda para su consulta <b>{{ $query }}</b> son : </p> 
-                        <h2>Detalles</h2>
+                        <h2>Usuarios Registrados</h2>
                         <table class="table table-hover">
                             <thead>
                               <tr>
                                 <th scope="col">Cedula</th>
                                 <th scope="col">Nombres</th>
+                                <th scope="col">Direccion</th>
+                                <th scope="col">Cumpleaños</th>
+                                <th scope="col">Teelefono</th>
                                 {{-- <th scope="col">Last</th>
                                 <th scope="col">Handle</th> --}}
                               </tr>
                             </thead>
                             <tbody>
-                              @foreach ( $details as $user )
+                              @foreach($details as $user)
                                 <tr>
-                                    <tr>{{$user->cedula}}</tr>
-                                    <tr>{{$user->nombres}}</tr> 
+                                    <td>{{$user->cedula}}</td>
+                                    <td>{{$user->nombres}}</td> 
+                                    <td>{{$user->direccion}}</td> 
+                                    <td>{{$user->cumpleanos}}</td> 
+                                    <td>{{$user->telefono}}</td> 
+                            
                                 </tr>  
                               @endforeach  
                             </tbody>

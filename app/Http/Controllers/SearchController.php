@@ -24,7 +24,7 @@ class SearchController extends Controller
                     return view('resgisterUsers.createUser')->withDetails($user)->withQuery($c);
             
         }
-        return view('resgisterUsers.createUser')->withMessage("USUARIO NO REGISTRADO");
+        return view('resgisterUsers.usernoregistrado')->withMessage("USUARIO NO REGISTRADO");
     }
 
 }
