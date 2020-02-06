@@ -24,4 +24,6 @@ Route::get('/consultar', function () {
     return view('consultar.consultar');
 });
 
-Route::post('/search', 'SearchController@search' );
+ Route::post('/search', 'SearchController@search' );
+
+Route::resource('service', 'CrearServicioController');

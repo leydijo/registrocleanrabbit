@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-10">
         <div class="card">
             <div class="card-header">Registro</div>
 
@@ -37,10 +37,11 @@
                               <tr>
                                 <th scope="col">Cedula</th>
                                 <th scope="col">Nombres</th>
-                                <th scope="col">Direccion</th>
+                                <th scope="col">Dirección</th>
                                 <th scope="col">Cumpleaños</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Editar</th>
+                                <th scope="col">Servicio</th>
                                 {{-- <th scope="col">Last</th>
                                 <th scope="col">Handle</th> --}}
                               </tr>
@@ -53,7 +54,8 @@
                                     <td>{{$user->direccion}}</td> 
                                     <td>{{$user->cumpleanos}}</td> 
                                     <td>{{$user->telefono}}</td> 
-                                    <td><button type="button" class="btn btn-success">Success</button></td> 
+                                    <td><button type="button" class="btn btn-info">Editar</button></td> 
+                                    <td><a type="button"  href="{{ asset('service/create') }}" class="btn btn-warning">Crear </a></td> 
                                 </tr>  
                                
                                 

@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\RegisterUser;
+use App\Service;
+use Carbon\Carbon;
 
-
-class RegisterUsersController extends Controller
+class CrearServicioController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        //
+    
         
-
         
+    
     }
 
     /**
@@ -29,7 +29,9 @@ class RegisterUsersController extends Controller
     public function create()
     {
         //
-        return view('resgisterUsers.createUser');
+
+        $servicios = Service::all();
+        return view('crearservicio.createservice', compact('servicios'));
     }
 
     /**
@@ -40,17 +42,20 @@ class RegisterUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request->input('name');
-        //return $request->all();
+        //
+
+        $createNewservice = new Service();
+        $createNewservice ->tipo_servicio=$request->input('tipo_servicio');
+        $createNewservice ->marcas=$request->input('marcas');
+        $createNewservice ->estado_tenis=$request->input('estado_tenis');
+        $createNewservice ->abono=$request->input('abono');
+        $createNewservice ->numero_order=$request->input('numero_order');
+        $createNewservice ->referencia=$request->input('referencia');
+        $createNewservice ->estado_pedido=$request->input('estado_pedido');
+        $createNewservice ->fecha_entrega=$request->input('fecha_entrega');
         
-         $createNewUser = new RegisterUser();
-         $createNewUser->cedula=$request->input('cedula');
-         $createNewUser->nombres=$request->input('nombrescompletos');
-         $createNewUser->direccion=$request->input('direccion');
-         $createNewUser->cumpleanos=$request->input('cumpleanos');
-         $createNewUser->telefono=$request->input('telefono');
-         $createNewUser->save();
-         return redirect(action('RegisterUsersController@create'));
+        $createNewservice->save();
+        return 'Saved';
     }
 
     /**
