@@ -22,4 +22,5 @@ class ProductoServicioUser extends Model
 
     public $timestamps = false;
  
+    
 }
