@@ -16,10 +16,10 @@ class CreateRegisterUsersTable extends Migration
         Schema::create('register_users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('cedula');
-            $table->string('nombres')->nullable();;
-            $table->string('direccion')->nullable();;
-            $table->date('cumpleanos')->nullable();;
-            $table->integer('telefono')->nullable();;
+            $table->string('nombres');
+            $table->string('direccion');
+            $table->date('cumpleanos');
+            $table->integer('telefono');
             $table->timestamps();
         });
     }

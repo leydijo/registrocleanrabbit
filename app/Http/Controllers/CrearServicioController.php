@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Service;
+use App\TiposServicio;
+use App\Marca;
+use App\EstadosTeni;
+use App\EstadosPedido;
+use App\ProductoServicioUser;
+
+
 use Carbon\Carbon;
 
 class CrearServicioController extends Controller
@@ -28,10 +34,20 @@ class CrearServicioController extends Controller
      */
     public function create()
     {
-        //
+        //muestre estos campos en la vista service/creeate
 
-        $servicios = Service::all();
-        return view('crearservicio.createservice', compact('servicios'));
+        $tipoServicios = TiposServicio::all();
+
+        $tipoMarcas = Marca::all();
+
+        $estadoTenis = EstadosTeni::all();
+
+        $estadoPedido = EstadosPedido::all();
+
+        return view('crearservicio.createservice', compact('tipoServicios', 'tipoMarcas', 'estadoTenis', 'estadoPedido'));
+
+        
+        
     }
 
     /**
@@ -42,20 +58,12 @@ class CrearServicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //guardar los campos de la vista service/create
+            
+            ProductoServicioUser::create($request->all());
 
-        $createNewservice = new Service();
-        $createNewservice ->tipo_servicio=$request->input('tipo_servicio');
-        $createNewservice ->marcas=$request->input('marcas');
-        $createNewservice ->estado_tenis=$request->input('estado_tenis');
-        $createNewservice ->abono=$request->input('abono');
-        $createNewservice ->numero_order=$request->input('numero_order');
-        $createNewservice ->referencia=$request->input('referencia');
-        $createNewservice ->estado_pedido=$request->input('estado_pedido');
-        $createNewservice ->fecha_entrega=$request->input('fecha_entrega');
-        
-        $createNewservice->save();
-        return 'Saved';
+              // dd($request->all());
+         return 'Saved';
     }
 
     /**
