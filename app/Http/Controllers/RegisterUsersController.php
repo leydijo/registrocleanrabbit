@@ -16,8 +16,10 @@ class RegisterUsersController extends Controller
     public function index(Request $request)
     {
         //
-        
-
+        $name = new RegisterUser();
+        $name = $request->input('name');
+        dd($request->all());
+        return redirect(action('RegisterUsersController@create'));
         
     }
 
@@ -73,6 +75,12 @@ class RegisterUsersController extends Controller
     public function edit($id)
     {
         //
+        
+        $usuarioregistrado = RegisterUser::find($id);
+        
+        return view('edit.editarservice', compact('usuarioregistrado'));
+        
+
     }
 
     /**
@@ -85,6 +93,7 @@ class RegisterUsersController extends Controller
     public function update(Request $request, $id)
     {
         //
+    
     }
 
     /**

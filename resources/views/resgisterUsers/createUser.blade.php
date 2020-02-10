@@ -35,6 +35,7 @@
                         <table class="table table-hover">
                             <thead>
                               <tr>
+                                <th scope="col">id</th>
                                 <th scope="col">Cedula</th>
                                 <th scope="col">Nombres</th>
                                 <th scope="col">Dirección</th>
@@ -49,18 +50,20 @@
                             <tbody>
                               @foreach($details as $user)
                                 <tr>
+                                    <td>{{$user->id}}</td>
                                     <td>{{$user->cedula}}</td>
                                     <td>{{$user->nombres}}</td> 
                                     <td>{{$user->direccion}}</td> 
                                     <td>{{$user->cumpleanos}}</td> 
                                     <td>{{$user->telefono}}</td> 
-                                    <td><button type="button" class="btn btn-info">Editar</button></td> 
+                                    <td><a type="button"  href="{{ route('register.edit', $user->id) }}"class="btn btn-info">Editar</a></td> 
                                     <td><a type="button"  href="{{ asset('service/create') }}" class="btn btn-warning">Crear </a></td> 
+
                                 </tr>  
                                
                                 
                               @endforeach  
-                            </tbody>
+                            </tbody> 
                             
                         </table>
                           @elseif(isset($message))
