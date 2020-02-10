@@ -8,6 +8,7 @@ use App\Marca;
 use App\EstadosTeni;
 use App\EstadosPedido;
 use App\ProductoServicioUser;
+use App\RegisterUser;
 
 
 use Carbon\Carbon;
@@ -32,9 +33,13 @@ class CrearServicioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //muestre estos campos en la vista service/creeate
+
+
+        $usuario = RegisterUser::find($request->get('user'));
+        
 
         $tipoServicios = TiposServicio::all();
 
@@ -44,7 +49,11 @@ class CrearServicioController extends Controller
 
         $estadoPedido = EstadosPedido::all();
 
-        return view('crearservicio.createservice', compact('tipoServicios', 'tipoMarcas', 'estadoTenis', 'estadoPedido'));
+       
+                //return $request->input('name');
+
+              //dd($request->input('cedula'));
+        return view('crearservicio.createservice', compact('nameuser','tipoServicios', 'tipoMarcas', 'estadoTenis', 'estadoPedido', 'usuario'));
 
         
         

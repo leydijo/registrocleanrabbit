@@ -29,7 +29,7 @@
                         </div>
                     </form>
                     <div class="div container">
-                        @if(isset($details))
+                        @if(isset($details)) 
                         <p>los resultados de búsqueda para su consulta <b>{{ $query }}</b> son : </p> 
                         <h2>Usuarios Registrados</h2>
                         <table class="table table-hover">
@@ -57,7 +57,7 @@
                                     <td>{{$user->cumpleanos}}</td> 
                                     <td>{{$user->telefono}}</td> 
                                     <td><a type="button"  href="{{ route('register.edit', $user->id) }}"class="btn btn-info">Editar</a></td> 
-                                    <td><a type="button"  href="{{ asset('service/create') }}" class="btn btn-warning">Crear Servicio </a></td> 
+                                <td><a type="button"  href="{{ asset ('service/create') }}?user={{$user->id}}" class="btn btn-warning">Crear Servicio </a></td> 
 
                                 </tr>  
                                

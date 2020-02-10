@@ -19,6 +19,12 @@
 
                     <form class="form-group" action="/service" method="POST" id="">
                         {{ csrf_field() }}
+
+                         <div class="form-group">
+                          <label for="nombrescompletos">Nombres Completos</label>
+                         <input type="text" class="form-control" value="{{$usuario->nombres}}" name="nombrescompletos" id="nombrescompletos">
+                        </div>
+
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="inputGroupSelect01">Tipo de Servicio</label>
