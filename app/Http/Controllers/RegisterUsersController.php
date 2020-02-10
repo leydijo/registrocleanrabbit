@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\RegisterUser;
+use App\Http\Requests\UserregisterRequest;
 
 
 class RegisterUsersController extends Controller
@@ -40,7 +41,7 @@ class RegisterUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserregisterRequest $request)
     { 
         //return $request->input('name');
         //return $request->all();
@@ -79,6 +80,7 @@ class RegisterUsersController extends Controller
         $usuarioregistrado = RegisterUser::find($id);
         
         return view('edit.editarservice', compact('usuarioregistrado'));
+        return redirect(action('RegisterUsersController@create'));
         
 
     }
@@ -90,10 +92,33 @@ class RegisterUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserregisterRequest $request, $id)
     {
-        //
-    
+        //$usuarioregistrado->update($request->all());
+
+        // $usuarioregistrado =  RegisterUser::find($id);
+
+        //  $usuarioregistrado->cedula =  $request->cedula;
+        //  $usuarioregistrado->nombres =  $request->nombres;
+        // $usuarioregistrado->direccion =  $request->direccion;
+        //  $usuarioregistrado->cumpleanos =  $request->cumpleanos;
+        //  $usuarioregistrado->telefono =  $request->telefono;
+
+        // $usuarioregistrado->save();
+
+         $usuarioregistrado = RegisterUser::find($id);
+         $usuarioregistrado->update($request->all());
+         $usuarioregistrado->cedula = $request->cedula;
+    	 $usuarioregistrado->nombres = $request->nombrescompletos;
+         $usuarioregistrado->direccion = $request->direccion;
+         $usuarioregistrado->cumpleanos = $request->cumpleanos;
+		 $usuarioregistrado->telefono = $request->telefono;
+        
+    	
+         $usuarioregistrado->save();
+
+          return view('resgisterUsers.createUser');
+        //return 'actualizado';
     }
 
     /**

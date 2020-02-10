@@ -16,9 +16,10 @@
                 @endif
 
                 <div class="container">
-
-                <form class="form-group" action="{{route('register.edit', $usuarioregistrado->id)}}" method="GET" id="">
-                        {{ csrf_field() }}
+             
+                <form class="form-group" action="{{route('register.update', $usuarioregistrado->id)}}" method="POST" id="">
+                    {{ method_field('PUT') }}
+				    {{ csrf_field() }}
                         <div class="form-group">
                           <label for="cedula">Cédula </label>
                         <input  type="text" class="form-control" id="cedula" name="cedula"  value="{{$usuarioregistrado->cedula}}"aria-describedby="emailHelp">
@@ -36,7 +37,7 @@
 
                         <div class="form-group">
                             <label for="cumpleanos">Cumpleaños</label>
-                            <input type="date" class="form-control" name="cumpleanos"  value="{{$usuarioregistrado->cumpleaños}}" id="cumpleanos">
+                            <input type="date" class="form-control" name="cumpleanos"  value="{{$usuarioregistrado->cumpleanos}}" id="cumpleanos">
                         </div>
 
                         
@@ -45,11 +46,20 @@
                             <input type="text" class="form-control" name="telefono"  value="{{$usuarioregistrado->telefono}}" id="telefono">
                         </div>
 
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <a type="submit" class="btn btn-lg btn-danger pull-right">Actualizar</a>
-                            <a type="submit" href="{{ asset('register/create') }}" class="btn btn-lg btn-info pull-left">Regresar</a>
-                        </div> 
+                       
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">
+                                Guardar
+                            </button>
+                            <button class="btn btn-danger" type="reset">
+                                Cancelar
+                            </button>
+                        </div>
                             
+                        {{-- <div class="col-lg-10 col-lg-offset-2">
+                            <a type="submit"  class="btn btn-lg btn-danger pull-right">Actualizar</a>
+                            <a type="submit" href="{{ asset('register/create') }}" class="btn btn-lg btn-info pull-left">Regresar</a>
+                        </div>  --}}
                       </form>
                     
                       

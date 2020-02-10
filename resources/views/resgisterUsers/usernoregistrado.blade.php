@@ -16,7 +16,7 @@
                 @endif
 
                 <div class="container">
-
+                    @include('layouts.error')
                     <form class="form-group" action="/register" method="POST" id="">
                         {{ csrf_field() }}
                         <div class="form-group">

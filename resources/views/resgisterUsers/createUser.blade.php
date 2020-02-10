@@ -18,7 +18,7 @@
                 <div class="well">
 
                     <form action="/search" method="POST" role="search">
-                        {{ csrf_field() }}
+                        {{ csrf_field() }} 
                         <div class="input-group">
                             <input type="text" class="form-control" name="c" 
                                 placeholder="Search users"> <span class="input-group-btn">
@@ -57,7 +57,7 @@
                                     <td>{{$user->cumpleanos}}</td> 
                                     <td>{{$user->telefono}}</td> 
                                     <td><a type="button"  href="{{ route('register.edit', $user->id) }}"class="btn btn-info">Editar</a></td> 
-                                    <td><a type="button"  href="{{ asset('service/create') }}" class="btn btn-warning">Crear </a></td> 
+                                    <td><a type="button"  href="{{ asset('service/create') }}" class="btn btn-warning">Crear Servicio </a></td> 
 
                                 </tr>  
                                
