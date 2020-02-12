@@ -23,12 +23,12 @@ class UserregisterRequest extends FormRequest
      */
     public function rules()
     {
-        // return [
+         return [
         //     'cedula' => 'required',
         //     'nombres' => 'required',
         //     'direccion' => 'required',
         //     'cumpleanos' => 'required',
         //     'telefono' => 'required'
-        // ];
+        ];
     }
 }

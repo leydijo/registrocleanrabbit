@@ -71,7 +71,7 @@ class CrearServicioController extends Controller
             
             ProductoServicioUser::create($request->all());
 
-              dd($request->all());
+            //  dd($request->all());
          return 'Saved';
     }
 

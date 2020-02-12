@@ -15,21 +15,24 @@
                     </div>
                 @endif
 
-                <div class="container">
+                <div class="container"> 
 
                     <form class="form-group" action="/service" method="POST" id="">
                         {{ csrf_field() }}
 
                          <div class="form-group">
-                          <label for="nombrescompletos">Nombres Completos</label>
-                         <input type="text" class="form-control" value="{{$usuario->nombres}}" name="nombrescompletos" id="nombrescompletos">
+                          <label for="nombrescompletos">Cliente: {{$usuario->nombres}}</label>
+                         </div>
+                        
+                        <div class="form-group">
+                          
+                         <input type="hidden" class="form-control" value="{{$usuario->id}}" name="cedula_id" id="nombrescompletos">
                         </div>
-
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="inputGroupSelect01">Tipo de Servicio</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect01" name="tipo_servicio">
+                            <select class="custom-select" id="inputGroupSelect01" name="servicio_id">
                                 <option selected>Seleccione...</option>
                                 @foreach ($tipoServicios as  $servicio)
                                   <option value="{{ $servicio['id'] }}">{{ $servicio ['tipo_servicio'] }}</option>
@@ -42,7 +45,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="inputGroupSelect02">Marcas</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect02" name="marcas">
+                            <select class="custom-select" id="inputGroupSelect02" name="marcas_id">
                                 <option selected>Seleccione...</option>
                                 @foreach ($tipoMarcas as  $marcas)
                                   <option value="{{ $marcas['id'] }}">{{ $marcas['marcas'] }}</option>
@@ -55,7 +58,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="inputGroupSelect03">Estado de tenis</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect03" name="estado_tenis">
+                            <select class="custom-select" id="inputGroupSelect03" name="estado_tenis_id">
                                 <option selected>Seleccione...</option>
                                 @foreach ($estadoTenis as  $tenis)
                                   <option value="{{ $tenis['id'] }}">{{ $tenis['estado_tenis'] }}</option>
@@ -76,14 +79,15 @@
                             <input type="number" class="form-control"  name="abono" aria-label="Dollar amount (with dot and two decimal places)">
                         </div>
 
-
                         <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">#</span>
-                              <span class="input-group-text">Orden</span>
-                            </div>
-                            <input type="text" class="form-control"  namme="numero_order" aria-label="Dollar amount (with dot and two decimal places)">
-                        </div>
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">#</span>
+                            <span class="input-group-text">N Orden</span>
+                          </div>
+                          <input type="number" class="form-control" name="numero_order" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+
+
 
 
                         <div class="input-group mb-3">
@@ -98,7 +102,7 @@
                               <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect04">Estado de Pedido</label>
                               </div>
-                              <select class="custom-select" id="inputGroupSelect04" name="estado_pedido">
+                              <select class="custom-select" id="inputGroupSelect04" name="estado_pedido_id">
                                   <option selected>Seleccione...</option>
                                   @foreach ($estadoPedido as  $pedido)
                                     <option value="{{$pedido['id'] }}">{{$pedido['estado_pedido'] }}</option>
