@@ -21,7 +21,7 @@
                         {{ csrf_field() }}
 
                          <div class="form-group">
-                          <label for="nombrescompletos">Cliente: {{$usuario->nombres}}</label>
+                          <label for="nombrescompletos">Nombre de Cliente: {{$usuario->nombres}}</label>
                          </div>
                         
                         <div class="form-group">
@@ -32,7 +32,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="inputGroupSelect01">Tipo de Servicio</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect01" name="servicio_id">
+                            <select class="custom-select" id="inputGroupSelect01" name="servicio_id" onchange=" mostrar(this.value);">
                                 <option selected>Seleccione...</option>
                                 @foreach ($tipoServicios as  $servicio)
                                   <option value="{{ $servicio['id'] }}">{{ $servicio ['tipo_servicio'] }}</option>
@@ -41,9 +41,9 @@
                             </select>
                         </div>
 
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3 ocultarproductos">
                             <div class="input-group-prepend">
-                              <label class="input-group-text" for="inputGroupSelect02">Marcas</label>
+                              <label class="input-group-text " for="inputGroupSelect02">Marcas</label>
                             </div>
                             <select class="custom-select" id="inputGroupSelect02" name="marcas_id">
                                 <option selected>Seleccione...</option>
@@ -82,7 +82,7 @@
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text">#</span>
-                            <span class="input-group-text">N Orden</span>
+                            <span class="input-group-text">Orden</span>
                           </div>
                           <input type="number" class="form-control" name="numero_order" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
@@ -93,7 +93,7 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text">#</span>
-                              <span class="input-group-text">Referencia</span>
+                              <span class="input-group-text">Referencia de Tenis</span>
                             </div>
                             <input type="number" class="form-control" name="referencia" aria-label="Dollar amount (with dot and two decimal places)">
                         </div>
@@ -105,7 +105,7 @@
                               <select class="custom-select" id="inputGroupSelect04" name="estado_pedido_id">
                                   <option selected>Seleccione...</option>
                                   @foreach ($estadoPedido as  $pedido)
-                                    <option value="{{$pedido['id'] }}">{{$pedido['estado_pedido'] }}</option>
+                                    <option value="{{$pedido['id'] }}">{{$pedido['status'] }}</option>
                                   @endforeach
 
                               </select>
@@ -136,7 +136,12 @@
 <script type="text/javascript">
 
 
-   console.log('hola feo')
+function mostrar(id) {
+    if (id >= "6") {
+    $(".ocultarproductos").hide();
+    }
+}
+  // console.log('hola feo')
 
 
   

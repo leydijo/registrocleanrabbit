@@ -45,6 +45,8 @@ class RegisterUsersController extends Controller
     { 
         //return $request->input('name');
         //return $request->all();
+
+       
         
          $createNewUser = new RegisterUser();
          $createNewUser->cedula=$request->input('cedula');

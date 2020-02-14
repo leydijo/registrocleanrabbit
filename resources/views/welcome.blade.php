@@ -7,7 +7,7 @@
         <title>Cleanrabbit</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/d1fdf6a701.js" crossorigin="anonymous"></script>
 
@@ -17,11 +17,12 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                color: #000;
+                font-family: 'Montserrat', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                padding: 0;
             }
 
             .full-height {
@@ -66,12 +67,97 @@
                 margin-bottom: 30px;
             }
         </style>
- 
+  
     </head>
     <body>
         @yield('scripts')
+
+        <nav class="navbar navbar-light bg-dark">
+            <a class="navbar-brand" href="#">
+              <img src= {{ asset('../img/conejo.png') }} width="40" height="30" class="d-inline-block align-top" alt="">
+             
+ 
+             <span style="color: #fff;">CleanRabbit</span>
+            </a>
+          </nav>
         <div class="container text-center">
-            <div class="col">
+
+         
+
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <div class="card">
+                        <div class="card-header">Registro</div>
+            
+                        <div class="card-body">
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+            
+                            <div class="well">
+            
+                                <form action="/search" method="get" role="search">
+                                    {{ csrf_field() }} 
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="c" 
+                                            placeholder="Search users"> <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-default">
+                                                <span class="glyphicon glyphicon-search"><i class="fas fa-search"></i></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                                <div class="div container">
+                                    @if(isset($details)) 
+                                    <p>los resultados de búsqueda para su consulta <b>{{ $query }}</b> son : </p> 
+                                    <h2>Usuarios Registrados</h2>
+                                    <table class="table table-hover">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">id</th>
+                                            <th scope="col">Cedula</th>
+                                            <th scope="col">Nombres</th>
+                                            <th scope="col">Dirección</th>
+                                            <th scope="col">Cumpleaños</th>
+                                            <th scope="col">Telefono</th>
+                                            <th scope="col">Editar</th>
+                                            <th scope="col">Servicio</th>
+                                            {{-- <th scope="col">Last</th>
+                                            <th scope="col">Handle</th> --}}
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          @foreach($details as $user)
+                                            <tr>
+                                                <td>{{$user->id}}</td>
+                                                <td>{{$user->cedula}}</td>
+                                                <td>{{$user->nombres}}</td> 
+                                                <td>{{$user->direccion}}</td> 
+                                                <td>{{$user->cumpleanos}}</td> 
+                                                <td>{{$user->telefono}}</td> 
+                                                <td><a type="button"  href="{{ route('register.edit', $user->id) }}"class="btn btn-info">Editar</a></td> 
+                                            <td><a type="button"  href="{{ asset ('service/create') }}?user={{$user->id}}" class="btn btn-warning">Crear Servicio </a></td> 
+            
+                                            </tr>  
+                                           
+                                            
+                                          @endforeach  
+                                        </tbody> 
+                                        
+                                    </table>
+                                      @elseif(isset($message))
+                                        <p>{{$message}}</p>
+                                      @endif
+            
+                          
+            
+                                </div>
+                                
+                                  
+                            </div> 
+            {{-- <div class="col">
                <div class="main-section">
                    <div class="col-12">
                        <div class="avatar">
@@ -121,7 +207,7 @@
                                 </div>
                             </div>
      --}}
-                            <div class="form-group row mb-0">
+                            {{-- <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary text-center">
                                         <i class="fas fa-sign-in-alt"></i>
@@ -135,11 +221,20 @@
                                     @endif
                                 </div>
                             </div>
-                        </form>
+                        </form> --}}
+
+
+
+
+
+
+
+
+
 
                    </div>
                 </div> 
-            </div>
+            </div> 
            
         </div>
     </body>

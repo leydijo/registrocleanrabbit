@@ -37,3 +37,24 @@ button {
 .create button {
     width: 118px;
 }
+
+.card {
+    top: 13%;
+    border: none;
+}
+
+.registrados {
+    margin-top: 60px;
+}
+
+.card-header {
+    background-color: #ffc10e;
+}
+
+.titulo {
+    font-family: "NexaRustSlabW00-Black01";
+}
+
+.editaru {
+    border: 1px solid rgba(0, 0, 0, .125);
+}

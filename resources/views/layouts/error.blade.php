@@ -1,4 +1,4 @@
-{{-- @if(count ($errors))
+ @if(count ($errors )> 0)
 
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">
@@ -10,4 +10,4 @@
             @endforeach
         </ul>
     </div>
-@endif --}}
+@endif 

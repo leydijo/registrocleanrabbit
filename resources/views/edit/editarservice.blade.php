@@ -16,7 +16,7 @@
                 @endif
 
                 <div class="container">
-             
+                    @extends('layouts.error')
                 <form class="form-group" action="{{route('register.update', $usuarioregistrado->id)}}" method="POST" id="">
                     {{ method_field('PUT') }}
 				    {{ csrf_field() }}
@@ -30,7 +30,7 @@
                           <input type="text" class="form-control"  name="nombrescompletos" value="{{$usuarioregistrado->nombres}}" id="nombrescompletos">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group"> 
                             <label for="direccion">Dirección</label>
                             <input type="text" class="form-control" name="direccion"  value="{{$usuarioregistrado->direccion}}" id="direccion">
                         </div>
