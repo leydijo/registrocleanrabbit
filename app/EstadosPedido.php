@@ -8,7 +8,7 @@ class EstadosPedido extends Model
 {
     //
 
-    protected $fillable = ['status'];
+     protected $fillable = ['status'];
 
 
        

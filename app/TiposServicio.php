@@ -39,6 +39,7 @@ class TiposServicio extends Model
   
     }
 
+
   
 
 }

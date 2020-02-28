@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\TiposServicio;
 use App\Marca;
 use App\EstadosTeni;
-use App\EstadosPedido;
-use App\ProductoServicioUser;
+use App\EstadosPedido; 
+use App\Orders;
 use App\RegisterUser;
-
-
+use App\OrdersRegisterUser;
 use Carbon\Carbon;
 
 class CrearServicioController extends Controller
@@ -20,12 +20,14 @@ class CrearServicioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-    
+        $user=new RegisterUser();
+        $getUserById=$user->getUserById($request->get("user"));
+        //dd($getUserById);
+        return view('verproductos.productos', compact('getUserById'));
         
         
-    
     }
 
     /**
@@ -43,7 +45,7 @@ class CrearServicioController extends Controller
 
         $tipoServicios = TiposServicio::all();
 
-        $tipoMarcas = Marca::all();
+        $tipoMarcas = Marca::all(); 
 
         $estadoTenis = EstadosTeni::all();
 
@@ -57,7 +59,7 @@ class CrearServicioController extends Controller
 
         
         
-    }
+    } 
 
     /**
      * Store a newly created resource in storage.
@@ -69,9 +71,12 @@ class CrearServicioController extends Controller
     {
         //guardar los campos de la vista service/create
             
-            ProductoServicioUser::create($request->all());
+        Orders::create($request->all());
+
+        
 
             //  dd($request->all());
+      
          return 'Saved';
     }
 
@@ -84,6 +89,7 @@ class CrearServicioController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
@@ -95,9 +101,8 @@ class CrearServicioController extends Controller
     public function edit($id)
     {
         //
-
         
-    
+       
     }
 
     /**
@@ -126,4 +131,8 @@ class CrearServicioController extends Controller
     {
         //
     }
+
+
+
+    
 }

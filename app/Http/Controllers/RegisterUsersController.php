@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\RegisterUser;
-use App\Http\Requests\UserregisterRequest;
+//use App\Http\Requests\UserregisterRequest;
 
 
 class RegisterUsersController extends Controller
@@ -32,7 +32,9 @@ class RegisterUsersController extends Controller
     public function create()
     {
         //
-        return view('resgisterUsers.createUser');
+        //return view('resgisterUsers.createUser');
+        
+
     }
 
     /**
@@ -41,7 +43,7 @@ class RegisterUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserregisterRequest $request)
+    public function store(Request $request)
     { 
         //return $request->input('name');
         //return $request->all();

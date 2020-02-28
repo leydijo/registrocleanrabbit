@@ -26,7 +26,7 @@
                         
                         <div class="form-group">
                           
-                         <input type="hidden" class="form-control" value="{{$usuario->id}}" name="cedula_id" id="nombrescompletos">
+                         <input type="hidden" class="form-control" value="{{$usuario->id}}" name="register_user_id" >
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -41,11 +41,11 @@
                             </select>
                         </div>
 
-                        <div class="input-group mb-3 ocultarproductos">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <label class="input-group-text " for="inputGroupSelect02">Marcas</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect02" name="marcas_id">
+                            <select class="custom-select" id="inputGroupSelect02" name="marca_id">
                                 <option selected>Seleccione...</option>
                                 @foreach ($tipoMarcas as  $marcas)
                                   <option value="{{ $marcas['id'] }}">{{ $marcas['marcas'] }}</option>
@@ -95,7 +95,7 @@
                               <span class="input-group-text">#</span>
                               <span class="input-group-text">Referencia de Tenis</span>
                             </div>
-                            <input type="number" class="form-control" name="referencia" aria-label="Dollar amount (with dot and two decimal places)">
+                            <input type="text" class="form-control" name="reference" aria-label="Dollar amount (with dot and two decimal places)">
                         </div>
 
                           <div class="input-group mb-3 ">
